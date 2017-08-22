@@ -1,0 +1,83 @@
+
+<html>
+<head>
+<title>basic example</title>
+<style>
+#qrcodeCanvas,#qrcodeTable{
+  position: relative;
+  display: inline-block;
+}
+  .logo{
+    position: absolute;
+    width: 50px;
+    transform: translate(-50%,-50%);
+    left:50%;
+    top:50%;
+    /*top:;*/
+  }
+  .logo img{
+    width: 100%;
+  }
+  .tel{
+    position: absolute;
+    bottom:-20px;
+  }
+</style>
+</head>
+<body>
+<script src="jquery.min.js"></script>
+
+<!--<script type="text/javascript" src="../jquery.qrcode.min.js"></script>
+--><script type="text/javascript" src="jquery.qrcode.js"></script>
+<script type="text/javascript" src="qrcode.js"></script>
+<script src="html2canvas.js"></script>
+<p>Render in table</p>
+<div id="qrcodeTable">
+  <div class="logo">
+    <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAUEBAUEAwUFBAUGBgUGCA4JCAcHCBEMDQoOFBEVFBMRExMWGB8bFhceFxMTGyUcHiAhIyMjFRomKSYiKR8iIyL/2wBDAQYGBggHCBAJCRAiFhMWIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiL/wgARCABhAGEDAREAAhEBAxEB/8QAGgABAAMBAQEAAAAAAAAAAAAAAAQGBwUDAv/EABoBAQADAQEBAAAAAAAAAAAAAAAEBQYDAQf/2gAMAwEAAhADEAAAAO39L+FAAAHgPQAAAPXn06saf14lhG6cavaUQAAAE+PMu9NpOtDsovXhluowgAAAE+PMu9PpKFd5b5988OnEAAACfHmXen0mc6DHgAAAAT48y70+kznQY8AAAACfHmXen0mc6DHgAAAAT48y70+kznQY8AAAACfHmXen0mc6DHgAAAAT48y70+kznQY8AAAACTx72KBbVS1ogAAAAA8PQAAAAAAAAH//xAAtEAABAwEIAQMCBwAAAAAAAAABAgMEBQAGBxEwNXSywhITMSJRIUBBUGFxgf/aAAgBAQABPwD8lFjqlTGY7ZAW8tKElXxmTla8F25l2pbTE9bKluo9Y9kkjL/QLUnDurViksT4r0JLD4zSHHFA9bV+49Su5TUzJzsVbSlhADK1E5n+0jSo2/07kt9hbFvf4PH8rIu9LvNhPRIkBxhDrTpcPvKIGX1j9Afva9VJfoeE9Op8xban2ZX1Fo5j8Ss6VG3+nclvsLYtb/B4/lZufLZbCGpT6ED4SlwgCzsyS+j0PyHnEfPpW4SNKjb/AE7kt9hbFrf4PH8tSjb/AE7kt9hbFrf4PH8tSjb/AE7kt9hbFrf4PH8tSjb/AE7kt9hbFrf4PH8tSjb/AE7kt9hbFrf4PH8tSjb/AE7kt9hbFrf4PH8tSBITEqcWQ4CUMuoWQPkgHO19ryxbzVONIhtPNJaa9BDuX3/gn9h//8QAIBEAAQQDAQEAAwAAAAAAAAAAAgABAwQFMDMRQRNAUP/aAAgBAgEBPwD9KU2jByf4qd0LYuQt54p8xFDI8bj67KplI7Mn4xHx9VvgawPM0dkK18zNvWWPmGfIPILeM+q3wNYDmaeGMn9dkMQA/otqt8DWA5nst8DWA5nst8DWA5nst8DWA5nst8DWA5nst8DWA5nsnB5IyFvqxlKSoBMf3+D/AP/EACURAAEDAwUAAQUAAAAAAAAAAAMBAgUABAYRMDM0cTETIUBBUP/aAAgBAwEBPwD8IIlKRGJ8rUlGFj3I0i661aY5cXIUM1+iLUjAnsQ/Ve7VNqO7Q6y3mHQrIl7EDEJ2i1L2z7WHaF66qm1HdodZbzD8pl0ZjdGu+1PuCkTRztdqO7Q6y3mH5uR3aHWW8w/NyO7Q6y3mH5uR3aHWW8w/NyO7Q6y3mH5uR3aHWW8w/Ny1KgTNIv6qclByBGuGnx/B/9k=" class="icon_logo">
+  </div>
+  <div class="tel">78921</div>
+</div>
+<p>Render in canvas</p> 
+<div id="qrcodeCanvas">
+  <div class="logo">
+    <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAUEBAUEAwUFBAUGBgUGCA4JCAcHCBEMDQoOFBEVFBMRExMWGB8bFhceFxMTGyUcHiAhIyMjFRomKSYiKR8iIyL/2wBDAQYGBggHCBAJCRAiFhMWIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiL/wgARCABhAGEDAREAAhEBAxEB/8QAGgABAAMBAQEAAAAAAAAAAAAAAAQGBwUDAv/EABoBAQADAQEBAAAAAAAAAAAAAAAEBQYDAQf/2gAMAwEAAhADEAAAAO39L+FAAAHgPQAAAPXn06saf14lhG6cavaUQAAAE+PMu9NpOtDsovXhluowgAAAE+PMu9PpKFd5b5988OnEAAACfHmXen0mc6DHgAAAAT48y70+kznQY8AAAACfHmXen0mc6DHgAAAAT48y70+kznQY8AAAACfHmXen0mc6DHgAAAAT48y70+kznQY8AAAACTx72KBbVS1ogAAAAA8PQAAAAAAAAH//xAAtEAABAwEIAQMCBwAAAAAAAAABAgMEBQAGBxEwNXSywhITMSJRIUBBUGFxgf/aAAgBAQABPwD8lFjqlTGY7ZAW8tKElXxmTla8F25l2pbTE9bKluo9Y9kkjL/QLUnDurViksT4r0JLD4zSHHFA9bV+49Su5TUzJzsVbSlhADK1E5n+0jSo2/07kt9hbFvf4PH8rIu9LvNhPRIkBxhDrTpcPvKIGX1j9Afva9VJfoeE9Op8xban2ZX1Fo5j8Ss6VG3+nclvsLYtb/B4/lZufLZbCGpT6ED4SlwgCzsyS+j0PyHnEfPpW4SNKjb/AE7kt9hbFrf4PH8tSjb/AE7kt9hbFrf4PH8tSjb/AE7kt9hbFrf4PH8tSjb/AE7kt9hbFrf4PH8tSjb/AE7kt9hbFrf4PH8tSjb/AE7kt9hbFrf4PH8tSBITEqcWQ4CUMuoWQPkgHO19ryxbzVONIhtPNJaa9BDuX3/gn9h//8QAIBEAAQQDAQEAAwAAAAAAAAAAAgABAwQFMDMRQRNAUP/aAAgBAgEBPwD9KU2jByf4qd0LYuQt54p8xFDI8bj67KplI7Mn4xHx9VvgawPM0dkK18zNvWWPmGfIPILeM+q3wNYDmaeGMn9dkMQA/otqt8DWA5nst8DWA5nst8DWA5nst8DWA5nst8DWA5nst8DWA5nsnB5IyFvqxlKSoBMf3+D/AP/EACURAAEDAwUAAQUAAAAAAAAAAAMBAgUABAYRMDM0cTETIUBBUP/aAAgBAwEBPwD8IIlKRGJ8rUlGFj3I0i661aY5cXIUM1+iLUjAnsQ/Ve7VNqO7Q6y3mHQrIl7EDEJ2i1L2z7WHaF66qm1HdodZbzD8pl0ZjdGu+1PuCkTRztdqO7Q6y3mH5uR3aHWW8w/NyO7Q6y3mH5uR3aHWW8w/NyO7Q6y3mH5uR3aHWW8w/Ny1KgTNIv6qclByBGuGnx/B/9k=" class="icon_logo">
+  </div>
+</div>
+<button id="btn">生成图片</button>
+<div id="img-box"></div>
+<script>
+  jQuery('#qrcode').qrcode("this plugin is great");
+  jQuery('#qrcodeTable').qrcode({
+    width:200,
+    height:200,
+    render  : "table",
+    text  : "http://test.yiduyongche.com"
+  }); 
+  jQuery('#qrcodeCanvas').qrcode({
+    width:200,
+    height:200,
+    text  : "http://test.yiduyongche.com"
+  }); 
+  var base64 = $('canvas')[0].toDataURL();
+  console.log(base64)
+  $('#btn').click(function(){
+    html2canvas($('#qrcodeTable'), {
+        allowTaint: true,
+        taintTest: false,
+        logging: true,
+        onrendered: function(canvas) {
+            canvas.id = "mycanvas";
+            //document.body.appendChild(canvas);
+            //生成base64图片数据
+            var dataUrl = canvas.toDataURL();
+            var newImg = document.createElement("img");
+            newImg.src = dataUrl;
+            $('#img-box')[0].appendChild(newImg);
+        }
+    });
+  })
+</script>
+
+</body>
+</html>
